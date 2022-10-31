@@ -133,9 +133,23 @@
 
     <div class="grid__item {{ product_description_width }}">
       <div class="product-single__meta">
-
         <h1 class="product-single__title">{{ product.title }}</h1>
-        <div>⭐⭐⭐⭐⭐</div>
+
+        {% assign product_tag_string = product.tags | join: ' ' %}
+
+        {% if product_tag_string contains 'affiliate' %}
+
+          {% for tag in product.tags %}
+            {% if tag contains 'affiliate' %}
+              {% assign link = tag | split: '_' | last %}
+              <a href="{{ link }}" target="_blank">
+                <button style='margin: 60px 0; width: 100%;' type='button' class="btn">Shop On Amazon</button>
+              </a>
+            {% endif %}
+          {% endfor %}
+
+          {% else %}
+
         <script>window.performance.mark('debut:product:title_visible');</script>
           <div class="product__price">
             {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
@@ -240,6 +254,9 @@
               </div>
             </div>
           {% endform %}
+
+        {% endif %}
+
         </div>
 
         {%- comment -%}
