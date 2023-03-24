@@ -1,11 +1,19 @@
 {% unless section.settings == blank %}
-<h1>{{section.settings.heading}}</h1>
+<h3>{{section.settings.heading}}</h3>
 {% endunless %}
-{% for section in section.blocks %}
-    <h3>{{section.settings.question}}</h3>
-    <p>{{section.settings.answer}}</p>
-{%endfor%}
-
+<div class="mb-10 accordion">
+    {% for block in section.blocks %}
+      <div class="accordion-content mb-6">
+        <header class="header flex items-start justify-between">
+          <span class="title reveal:animate-fadeInUp text-xl font-bold">{{ block.settings.question }}</span>
+          <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+          {{ block.settings.answer }}
+        </p>
+    </div>
+  {% endfor %}
+  </div>
 
 
 {%  schema  %}  

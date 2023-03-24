@@ -6996,3 +6996,33 @@ hr {
 
 .store-availability-list__phone {
   margin-bottom: 0; }
+
+/* Accordion */
+.accordion {
+  max-width: 530px;
+  width: 100%;
+}
+.accordion .accordion-content {
+border-bottom: 1px solid #333333;
+overflow: hidden;
+}
+.accordion-content.open {
+padding-bottom: 10px;
+}
+.accordion-content header {
+min-height: 54px;
+cursor: pointer;
+transition: all 0.2s linear;
+}
+.accordion-content.open header {
+min-height: 35px;
+}
+
+.accordion-content header i {
+font-size: 14px;
+
+}
+.accordion-content .description {
+  height: 0;
+  transition: all 0.2s linear;
+}

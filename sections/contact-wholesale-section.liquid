@@ -41,7 +41,7 @@
         type="text" 
         id="{{ formId }}-businessName" 
         name="contact[business name]" 
-        value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+        >
     </div>
     <div class="grid__item medium-up--one-half">
       <label for="{{ formId }}-urlWebsite">Website</label>
@@ -49,23 +49,22 @@
         type="url"
         id="{{ formId }}-urlWebsite"
         name="contact[urlWebsite]"
-        autocorrect="off"
-        autocapitalize="off"
         placeholder="https://example.com"
         pattern="https://.*" size="30"
         required
         >
     </div>
   </div>
-
-  {% assign tobString_array = section.settings.type_of_business | split: ','%}
+    
+  {% unless section.settings.type_of_business == blank %}
+  {% assign tobString_array = section.settings.type_of_business | split: ',' %}
   <label for="{{ formId }}-typeOfBusiness">Type of Business</label>
   <select name="contact[type of business]" id="{{ formId }}-typeOfBusiness">
     {% for type in tobString_array %}
-      <option>{{type}}</option>
+      <option value="{{type}}">{{type}}</option>
     {%endfor%}
   </select>
-
+  {%endunless%}
   <label for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
   <input type="tel" id="{{ formId }}-phone" name="contact[{{ 'contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
 
