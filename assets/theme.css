@@ -6997,6 +6997,15 @@ hr {
 .store-availability-list__phone {
   margin-bottom: 0; }
 
+
+/* FAQ Styles */
+#faq-section-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Accordion */
 .accordion {
   max-width: 530px;

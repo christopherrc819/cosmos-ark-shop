@@ -1,6 +1,7 @@
-{% unless section.settings == blank %}
-<h3>{{section.settings.heading}}</h3>
-{% endunless %}
+<section id="faq-section-style">
+    {% unless section.settings == blank %}
+        <h3>{{section.settings.heading}}</h3>
+    {% endunless %}
 <div class="mb-10 accordion">
     {% for block in section.blocks %}
       <div class="accordion-content mb-6">
@@ -14,7 +15,7 @@
     </div>
   {% endfor %}
   </div>
-
+</section>
 
 {%  schema  %}  
     {

@@ -36,7 +36,7 @@
 
   <div class="grid grid--half-gutters">
     <div class="grid__item medium-up--one-half">
-      <label for="{{ formId }}-businessName">Business Name</label>
+      <label for="{{ formId }}-businessName">{{'customizations.wholesale.business_name' | t }}</label>
       <input 
         type="text" 
         id="{{ formId }}-businessName" 
@@ -44,7 +44,7 @@
         >
     </div>
     <div class="grid__item medium-up--one-half">
-      <label for="{{ formId }}-urlWebsite">Website</label>
+      <label for="{{ formId }}-urlWebsite">{{'customizations.wholesale.website' | t }}</label>
       <input
         type="url"
         id="{{ formId }}-urlWebsite"
@@ -58,7 +58,7 @@
     
   {% unless section.settings.type_of_business == blank %}
   {% assign tobString_array = section.settings.type_of_business | split: ',' %}
-  <label for="{{ formId }}-typeOfBusiness">Type of Business</label>
+  <label for="{{ formId }}-typeOfBusiness">{{'customizations.wholesale.business_type' | t }}</label>
   <select name="contact[type of business]" id="{{ formId }}-typeOfBusiness">
     {% for type in tobString_array %}
       <option value="{{type}}">{{type}}</option>
