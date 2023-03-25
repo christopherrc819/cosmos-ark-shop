@@ -9691,7 +9691,7 @@ function removeImageLoadingAnimation(image) {
 const accordionContent = document.querySelectorAll('.accordion-content')
 
 accordionContent.forEach((item, index)=>{
-    
+    console.log('index', index)
     let header = item.querySelector('.header')
     header.addEventListener('click', ()=>{
         item.classList.toggle("open");

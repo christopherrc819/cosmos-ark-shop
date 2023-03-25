@@ -7019,9 +7019,13 @@ overflow: hidden;
 padding-bottom: 10px;
 }
 .accordion-content header {
+display: flex;
+align-items: start;
+justify-content: space-between;
 min-height: 54px;
 cursor: pointer;
 transition: all 0.2s linear;
+margin-top: 10px;
 }
 .accordion-content.open header {
 min-height: 35px;
@@ -7034,4 +7038,8 @@ font-size: 14px;
 .accordion-content .description {
   height: 0;
   transition: all 0.2s linear;
+}
+
+.accordion h3 {
+  margin-top: 10px;
 }

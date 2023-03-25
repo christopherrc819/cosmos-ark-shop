@@ -2,19 +2,25 @@
     {% unless section.settings == blank %}
         <h3>{{section.settings.heading}}</h3>
     {% endunless %}
-<div class="mb-10 accordion">
+<div class="accordion">
     {% for block in section.blocks %}
-      <div class="accordion-content mb-6">
-        <header class="header flex items-start justify-between">
-          <span class="title reveal:animate-fadeInUp text-xl font-bold">{{ block.settings.question }}</span>
-          <i class="fa-solid fa-plus"></i>
-        </header>
-        <p class="description">
-          {{ block.settings.answer }}
-        </p>
-    </div>
+        
+        {% if block.type == 'faq' %}
+        <div class="accordion-content">
+            <header class="header">
+              <span class="title">{{ block.settings.question }}</span>
+              <i class="fa-solid fa-plus"></i>
+            </header>
+            <p class="description">
+              {{ block.settings.answer }}
+            </p>
+        </div>
+            {% elsif block.type == 'headline' %}
+                <h3>{{block.settings.title}}</h3>
+        {% endif %}
   {% endfor %}
   </div>
+  <!-- Use input: label & checkbox and forloop.index next time -->
 </section>
 
 {%  schema  %}  
@@ -33,14 +39,30 @@
         "name": "FAQ",
         "settings": [
             {
-                "type" : "text",
-                "label" : "Customer Questions",
-                "id" : "question"
+            "type": "text",
+            "label": "Title Internal Only",
+            "id": "title"
             },
             {
-                "type" : "textarea",
-                "label" : "Answer For FAQ",
-                "id" : "answer"
+            "type" : "text",
+            "label" : "Customer Questions",
+            "id" : "question"
+            },
+            {
+            "type" : "textarea",
+            "label" : "Answer For FAQ",
+            "id" : "answer"
+            }
+        ]
+      },
+      {
+        "type" : "headline",
+        "name" : "FAQ Heading",
+        "settings" : [
+            {
+                "type" : "text",
+                "label" : "Headline",
+                "id" : "title"
             }
         ]
       }
