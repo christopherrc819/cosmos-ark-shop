@@ -428,6 +428,9 @@
     },
     "affiliate_page" : {
       "amazon_btn" : "Find On Amazon"
-    }  
+    },
+    "product_page" : {
+      "shipping_details" : "Your order will be shipped the same, or next, business day. During sale events and holidays, there may be a slightly longer duration."
+    }
   }
 }

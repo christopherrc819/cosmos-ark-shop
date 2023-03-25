@@ -287,9 +287,39 @@
         >
         </div>
 
-        <div class="product-single__description rte">
+        <div style='display: none'class="product-single__description rte">
           {{ product.description }}
         </div>
+
+        <div class="description-container">
+          <div class="selector-container">
+              <div class="tab-btn tab-active">
+                  Description
+              </div>
+              {%  unless product.metafields.description.details == blank %}  
+              <div class="tab-btn">
+                Details
+              </div>
+              {% endunless %}
+              <div class="tab-btn">
+                  Shipping
+              </div>
+          </div>
+          <div class="content">
+              <div id="Description" class="content-body show-active">
+                  {{product.description}}
+              </div>
+              {% unless product.metafields.description.details == blank %}  
+              <div id="Details" class="content-body">
+                {{product.metafields.description.details}}
+              </div>
+              {% endunless %}
+              <div id="Shipping" class="content-body">
+                {{'customizations.product_page.shipping_details' | t }}
+              </div>
+          </div>
+      </div>
+
 
         {% if section.settings.show_share_buttons %}
           {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
