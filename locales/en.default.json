@@ -423,7 +423,7 @@
   "customizations" : {
     "wholesale" : {
       "website" : "Business Website",
-      "business_name" : "Company Now",
+      "business_name" : "Company Name",
       "business_type" : "Type of Business"
     },
     "affiliate_page" : {

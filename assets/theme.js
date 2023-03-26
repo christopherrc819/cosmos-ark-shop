@@ -732,14 +732,16 @@ slate.Variants = (function() {
     _getVariantFromOptions: function() {
       var selectedValues = this._getCurrentOptions();
       var variants = this.product.variants;
-
+      console.log('selected values',selectedValues)
+      console.log('All variants',variants)
       var found = variants.find(function(variant) {
         return selectedValues.every(function(values) {
           return variant[values.index] === values.value;
         });
       });
-
+      console.log('found',found)
       return found;
+      
     },
 
     /**
@@ -755,13 +757,13 @@ slate.Variants = (function() {
           },
           bubbles: true,
           cancelable: true
-        })
+        }) 
       );
 
       if (!variant) {
         return;
       }
-
+      console.log('variant change', variant)
       this._updateMasterSelect(variant);
       this._updateImages(variant);
       this._updatePrice(variant);
@@ -9729,9 +9731,7 @@ function removeOpen(index1) {
               contentBody.classList.remove('show-active');
           }
           // add .show-active (back) to clicked 
-          document.
-              getElementById(el.textContent.trim())
-              .classList.add('show-active');
+          document.getElementById(el.textContent.trim()).classList.add('show-active');
       }
 
       function setActiveTab(el){
